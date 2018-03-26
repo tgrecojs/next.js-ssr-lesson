@@ -1,10 +1,13 @@
 import React from 'react'
-import { injectGlobal } from 'react-emotion'
+import { injectGlobal, hydrate } from 'react-emotion'
 import { Wrapper, Content,Footer } from '../styles';
 import Panel from '../components/Panel';
 
+if(typeof window !== 'undefined') {
+    hydrate(window.__NEXT_DATA__.ids);
+}
+
 injectGlobal`
-    @import url('https://fonts.googleapis.com/css?family=Roboto+Slab');
     body{ 
         color: white;
         margin: 0;
